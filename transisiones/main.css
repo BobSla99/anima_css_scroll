@@ -1,0 +1,51 @@
+body {
+  display: grid;
+  place-content: center;
+  min-height: 50vh;
+}
+
+.pulser {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: cadetblue;
+  border-radius: 50%;
+  position: relative;
+
+  /* transition-duration : controlar la duracion de la transicion de un estado al otro */
+  transition-duration: 2.5s;
+
+  /* transition-property:permite escoger que propiedades se animaran permite all */
+  transition-property: scale, background, box-shadows,width;
+
+  /* transition-timing-function:para cambiar el tipo de funcion de velocidad permite:ease ease-in ease-out ease-in-out   */
+  /* Tambien steps()  cubic-bezier(x1 y1 ,y1 y2)*/
+  transition-timing-function: ease-out;
+  transition-timing-function: steps(5);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+
+  /* transition-delay: controla la demora al empezar */
+  transition-delay: 200ms;
+
+  /* shorthand */
+    transition: 
+    background 2.5s ease .1s,
+    scale 1s ease-in-out .3s,
+    box-shadow 1s ease-out .2s,
+    font-size 1s ease;
+
+}
+
+.pulser:hover {
+  scale: 4;
+  background: purple;
+  box-shadow: 0 0 10px purple;
+  font-size: 40px;
+
+  transition-property: all;
+  transition-duration: 14s;
+}
