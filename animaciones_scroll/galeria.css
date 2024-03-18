@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+.albums-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
+  & .album {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    flex: 1 1 350px;
+
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 40%;
+
+    & img {
+      flex: 1 1 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px black;
+    }
+
+    & .details {
+      & span {
+        position: relative;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        color: rgb(253, 253, 253);
+        text-align: center;
+      }
+      & span::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.actions {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+
+  & #page-label {
+    display: flex;
+    background-color: gray;
+    font-size: 48px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    padding: 15px;
+    border: none;
+    color: aqua;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .btn {
+    padding: 15px 10px;
+    width: 25%;
+    border-radius: 10px;
+    border: none;
+    color: aqua;
+    background-color: brown;
+    font-size: 24px;
+  }
+
+  & .btn:hover {
+    background-color: rgb(187, 96, 96);
+  }
+
+  & .btn:active {
+    animation: pushed 0.5s ease-in;
+  }
+}
+
+#progress {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  left: 0%;
+  height: 1vh;
+  width: 20;
+  background-color: rgb(153, 51, 119);
+  animation: barscroll auto linear;
+  animation-timeline: scroll(root);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 110;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@keyframes barscroll {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes pushed {
+  0% {
+    scale: 1;
+  }
+  35% {
+    scale: 0.8;
+  }
+  80% {
+    scale: 1;
+  }
+}
+
+/* .albums-container .album p {
+  font-size: 12px;
+  color: green !important; 
+} */
